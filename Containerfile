@@ -12,7 +12,7 @@ COPY rootfs/usr/share/ /etc/share/
 RUN rpm-ostree install distrobox && \
     rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-docker xfburn yt-dlp nss-tools lm_sensors wireguard-tools tmux bash-color-prompt jetbrains-mono-fonts-all podman-plugins code python3-pip btop && \
     rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland && \
-    rpm-ostree override remove toolbox gnome-classic-session gnome-tour gnome-extensions-app && \
+    rpm-ostree override remove toolbox gnome-classic-session gnome-tour && \
     rpm-ostree install \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
