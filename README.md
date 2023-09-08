@@ -1,3 +1,5 @@
+[![build-image](https://github.com/yasershahi/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/yasershahi/silverblue/actions/workflows/build.yml)
+
 # silverblue
 My Silverblue image
 
@@ -15,7 +17,7 @@ My Silverblue image
 
 
 ## Settings
-
+I'm working on it
 
 ## Fonts
 * Inter
@@ -41,6 +43,9 @@ My Silverblue image
 * inkscape
 * curtail
 
+## Not included
+* Nvidia drivers
+* Flatpaks automatic installation process
 
 ## Thank You 
 All credits goes to these awesome projects:
