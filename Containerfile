@@ -56,7 +56,7 @@ RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releas
 RUN wget https://github.com/subhra74/xdm/releases/download/7.2.11/xdm-setup-7.2.11.tar.xz -O /tmp/xdm.tar.xz && \
     tar -xf xdm.tar.xz
 
-RUN bash /tmp/xdm/install.sh
+RUN /tmp/xdm/install.sh
     
 RUN rm -rf /tmp/* 
 RUN ostree container commit
