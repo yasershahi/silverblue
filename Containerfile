@@ -51,12 +51,6 @@ RUN rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-d
 RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url') && \
   wget https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64 -O /tmp/devpod && \
   install -c -m 0755 /tmp/devpod /usr/bin
-  
-# Install XDM
-RUN wget https://github.com/subhra74/xdm/releases/download/7.2.11/xdm-setup-7.2.11.tar.xz -O /tmp/xdm.tar.xz && \
-    tar -xf xdm.tar.xz
-
-RUN /tmp/xdm/install.sh
     
 RUN rm -rf /tmp/* 
 RUN ostree container commit
