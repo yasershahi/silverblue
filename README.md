@@ -26,7 +26,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - wireguard-tools
 - tailscale
 
-### edit videos
+### Edit videos
 - **Flowbite**
 - **MKVToolsnix**
 
