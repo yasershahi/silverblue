@@ -3,7 +3,11 @@ ARG FEDORA_MAJOR_VERSION=38
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 # See https://pagure.io/releng/issue/11047 for final location
 
-COPY rootfs/ /
+COPY rootfs/etc/dconf/ /etc/dconf/
+COPY rootfs/etc/yum.repos.d/ /etc/yum.repos.d/
+COPY rootfs/usr/lib/ /usr/lib/
+COPY rootfs/usr/local/ /etc/local/
+COPY rootfs/usr/share/ /etc/share/
 
 RUN rpm-ostree install distrobox && \
     rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-docker xfburn yt-dlp nss-tools lm_sensors wireguard-tools tmux bash-color-prompt jetbrains-mono-fonts-all podman-plugins code cascadiacode-nerd-fonts python3-pip btop && \
