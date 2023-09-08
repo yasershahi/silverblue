@@ -10,7 +10,7 @@ COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
 RUN rpm-ostree install distrobox && \
-    rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-docker xfburn yt-dlp nss-tools lm_sensors wireguard-tools tmux bash-color-prompt jetbrains-mono-fonts-all podman-plugins code cascadiacode-nerd-fonts python3-pip btop && \
+    rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-docker xfburn yt-dlp nss-tools lm_sensors wireguard-tools tmux bash-color-prompt jetbrains-mono-fonts-all podman-plugins code python3-pip btop && \
     rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched gnome-shell mutter mutter-common xorg-x11-server-Xwayland && \
     rpm-ostree override remove toolbox gnome-classic-session gnome-tour gnome-extensions-app && \
     rpm-ostree install \
