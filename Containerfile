@@ -9,10 +9,19 @@ COPY rootfs/usr/lib/ /usr/lib/
 COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
+RUN rpm-ostree install gnome-tweaks && \
+    systemctl enable dconf-update.service && \
+    rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
+    systemctl enable flatpak-add-flathub-repo.service && \
+    systemctl enable flatpak-replace-fedora-apps.service && \
+    systemctl enable flatpak-cleanup.timer && \
+    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
+    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
+    rpm-ostree cleanup -m && \
+    ostree container commit
+    
 RUN rpm-ostree install distrobox && \
-    rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-docker xfburn yt-dlp nss-tools lm_sensors wireguard-tools tmux bash-color-prompt jetbrains-mono-fonts-all podman-plugins code python3-pip btop && \
-    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland && \
-    rpm-ostree override remove toolbox gnome-classic-session gnome-tour && \
+    rpm-ostree override remove toolbox && \
     rpm-ostree install \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
@@ -26,14 +35,14 @@ RUN rpm-ostree install distrobox && \
     mkdir -p /etc/distrobox && \
     echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=check/' /etc/rpm-ostreed.conf && \
-    rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
-    systemctl enable flatpak-add-flathub-repo.service && \
-    systemctl enable flatpak-replace-fedora-apps.service && \
-    systemctl enable flatpak-cleanup.timer && \
-    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
-    sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
     systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable dconf-update.service && \
+    rpm-ostree cleanup -m && \
+    ostree container commit
+    
+RUN rpm-ostree install gnome-tweaks unrar aria2 neofetch podman-compose podman-docker xfburn yt-dlp nss-tools lm_sensors wireguard-tools tmux bash-color-prompt jetbrains-mono-fonts-all podman-plugins code python3-pip btop && \
+    rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland && \
+    rpm-ostree override remove gnome-classic-session gnome-tour && \
     rpm-ostree cleanup -m && \
     ostree container commit
     
