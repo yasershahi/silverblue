@@ -1,7 +1,7 @@
 [![build-image](https://github.com/yasershahi/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/yasershahi/silverblue/actions/workflows/build.yml)
 
 # silverblue
-My Silverblue image
+This is my Fedora Silverblue Image. You can build your own images based on your workflow 😍
 
 ## Included
 * RPM Fusion with media codecs 
@@ -13,7 +13,7 @@ My Silverblue image
 * Set automatic checking of updates for the system
 * Reduce systemd shutdown timers
 * python3-pip, gnome-tweaks, mutter patched, podman-compose, aria2, xfburn, yt-dlp, mkcert, lm_sensors, btop, neofetch, unrar, evpod, XDM
-* Removed gnome-extentions-app, gnome-classic, gnome-tour
+* Removed gnome-classic, gnome-tour
 
 
 ## Settings
