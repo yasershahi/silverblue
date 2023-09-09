@@ -36,7 +36,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        major_version: 38
+        major_version: [38]
         include:
           - major_version: 38
             is_latest: true
