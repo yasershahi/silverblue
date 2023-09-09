@@ -139,6 +139,17 @@ I use GNOME as Fedora offers but with some modifications:
 - [VScode adwaita theme](https://marketplace.visualstudio.com/items?itemName=piousdeer.adwaita-theme)
 - [Thunderbird gnome theme](https://github.com/rafaelmardojai/thunderbird-gnome-theme)
 
+## Installation
+After installing Fedora Silverblue, rebase with this command:
+
+    sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/yasershahi/silverblue:latest
+
+These images are signed with Sisgstore's Cosign. You can verify the
+signature by downloading the `cosign.pub` key from this repo and running the
+following command:
+
+    cosign verify --key cosign.pub ghcr.io/yasershahi/silverblue
+
 ## Known issues
 * Nvidia drivers not included
 * Flatpaks manual installation process
