@@ -42,6 +42,10 @@ Apps with **bold** names will be installed as **Flatpaks**
 - **Spotify**
 - spotdl
 - **G4music**
+- **Podcasts**
+
+### Recording
+- **sound recorder**
 
 ### Read news / surf web
 - Firefox
