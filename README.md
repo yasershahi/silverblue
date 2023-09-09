@@ -76,7 +76,6 @@ Apps with **bold** names will be installed as **Flatpaks**
 - codecs
 - unrar
 - btop
-- **Black Box**
 - lm_sensors
 - neofetch
 - cmatrix
