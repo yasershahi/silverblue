@@ -161,17 +161,19 @@ jobs:
             
             
       # Sign container
-      - uses: sigstore/cosign-installer@main
-        if: github.event_name != 'pull_request'
-
-      - name: Sign container image
-        if: github.event_name != 'pull_request'
-        run: |
-          cosign sign -y --key env://COSIGN_PRIVATE_KEY ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
+      - name: cosign-installer
+        uses: sigstore/cosign-installer@v2.0.0
+        
+      - name: Write signing key to disk
+        run: 'echo "$KEY" > cosign.key'
+        shell: bash
         env:
-          TAGS: ${{ steps.push.outputs.digest }}
-          COSIGN_EXPERIMENTAL: false
-          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }} 
+          KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+      
+      - name: Sign the published Docker image
+        env:
+          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
+        run: cosign sign --key cosign.key ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_id }}
 
       - name: Echo outputs
         run: |
