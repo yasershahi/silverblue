@@ -158,40 +158,17 @@ jobs:
             
             
       # Sign container
-      - uses: sigstore/cosign-installer@main
-
-      - name: Write cosign keys to disk
-        run: |
-          echo "${{ env.COSIGN_PRIVATE_KEY }}" > cosign.key
-          echo "${{ env.COSIGN_PUBLIC_KEY }}" > cosign.pub
-          # DEBUG: get character count of keys
-          wc -c cosign.key
-          wc -c cosign.pub
-        env:
-          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
-          COSIGN_PUBLIC_KEY: ${{ secrets.COSIGN_PUBLIC_KEY }}
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: cosign-installer
+        uses: sigstore/cosign-installer@v3.1.2
+     
       - name: Sign container image
         run: |
-          cosign sign --key cosign.key -a git_sha=${{ github.sha }} -a git_tag=${{ github.ref }} ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
+          cosign sign --key env://COSIGN_PRIVATE_KEY ghcr.io/${{ env.GITHUB_USERNAME }}/${{ env.IMAGE_NAME }}@${TAGS}
         env:
           TAGS: ${{ steps.push.outputs.digest }}
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_KEY }}
           COSIGN_EXPERIMENTAL: false
-          COSIGN_PASSWORD: ${{ secrets.COSIGN_PASSWORD }}
 
-      - name: Verify signed image
-        run: |
-          cosign verify --key cosign.pub ${{ steps.registry_case.outputs.lowercase }}/${{ env.IMAGE_NAME }}@${TAGS}
-        env:
-          TAGS: ${{ steps.push.outputs.digest }}
-          COSIGN_EXPERIMENTAL: false
 
       - name: Echo outputs
         run: |
