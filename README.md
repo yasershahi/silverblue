@@ -109,7 +109,6 @@ I use GNOME as Fedora offers but with some modifications:
 
 ### Fonts included
 - Inter
-- Intel Mono
 - Jetbrains mono
 - Vazirmatn
 - Vazir code
