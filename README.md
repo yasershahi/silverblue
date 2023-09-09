@@ -9,7 +9,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 ### UI/UX Design
 - **Lunacy**
 - **Boxysvg**
-- Figma font agent
+- [Figma font agent](https://github.com/neetly/figma-agent-linux)
 
 ### Development
 - VScode
@@ -133,6 +133,11 @@ I use GNOME as Fedora offers but with some modifications:
 - mutter-patched
 - tailscale
 - vscode
+
+### Customization
+- [Firefox gnome theme](https://github.com/rafaelmardojai/firefox-gnome-theme)
+- [VScode adwaita theme](https://marketplace.visualstudio.com/items?itemName=piousdeer.adwaita-theme)
+- [Thunderbird gnome theme](https://github.com/rafaelmardojai/thunderbird-gnome-theme)
 
 ## Known issues
 * Nvidia drivers not included
