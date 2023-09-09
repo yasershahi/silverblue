@@ -36,8 +36,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        major_version: [38]
+        major_version: [37, 38]
         include:
+          - major_version: 37
+            is_latest: false
+            is_stable: false
           - major_version: 38
             is_latest: true
             is_stable: true
@@ -158,7 +161,7 @@ jobs:
             
             
       # Sign container
-      - uses: sigstore/cosign-installer@v3.1.2
+      - uses: sigstore/cosign-installer@main
         if: github.event_name != 'pull_request'
 
       - name: Sign container image
@@ -168,7 +171,7 @@ jobs:
         env:
           TAGS: ${{ steps.push.outputs.digest }}
           COSIGN_EXPERIMENTAL: false
-          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }}
+          COSIGN_PRIVATE_KEY: ${{ secrets.SIGNING_SECRET }} 
 
       - name: Echo outputs
         run: |
