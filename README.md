@@ -73,6 +73,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - yt-dlp
 
 ## Ease of life
+- **Authenticator**
 - codecs
 - unrar
 - btop
