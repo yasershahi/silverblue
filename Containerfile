@@ -32,6 +32,7 @@ RUN rpm-ostree install \
     podman-plugins \
     wireguard-tools \
     gnome-tweaks \
+    gnome-console \
     unrar \
     aria2 \
     neofetch \
