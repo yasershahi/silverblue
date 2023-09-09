@@ -16,6 +16,7 @@ RUN rpm-ostree override remove \
     toolbox \
     gnome-classic-session \
     gnome-tour \
+    gnome-terminal-nautilus \
     gnome-terminal
 
 # Install needed packages
