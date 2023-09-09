@@ -111,6 +111,17 @@ I use GNOME as Fedora offers but with some modifications:
 - Inter
 - Intel Mono
 - Jetbrains mono
+- Vazirmatn
+- Vazir code
+- Sahel
+- Gandom
+- Tanha
+- Nahid
+- Parastoo
+- Samim
+- Shabnam
+- Mikhak
+- Estedad
 
 ### Repositories included
 - RPMfution
