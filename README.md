@@ -25,6 +25,8 @@ Apps with **bold** names will be installed as **Flatpaks**
 - distrobox
 - wireguard-tools
 - tailscale
+- cosign
+- **Poedit**
 
 ### Edit videos
 - **Flowbite**
