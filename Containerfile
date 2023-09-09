@@ -64,6 +64,11 @@ RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releas
   wget https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64 -O /tmp/devpod && \
   install -c -m 0755 /tmp/devpod /usr/bin
 
+# Install cosign
+RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
+    install -c -m 0755 /tmp/cosign /usr/bin
+
+
 # Replace Toolbox with Distrobox
 RUN mkdir -p /etc/distrobox && \
     echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf && \
