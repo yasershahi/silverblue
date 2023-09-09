@@ -38,7 +38,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - **Inkscape**
 - **Curtail**
 
-### Listen to music / legally download some
+### Listen to music
 - **Spotify**
 - spotdl
 - **G4music**
@@ -47,7 +47,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - Firefox
 - **newsflash**
 
-### Commuinicate
+### Communicate
 - **Telegram**
 - **Discord**
 - **Element**
@@ -62,7 +62,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 
 ### Download files
 - aria2
-- XDM
+- XDM (not included yet)
 - **Parabolic**
 - yt-dlp
 
@@ -81,13 +81,13 @@ Apps with **bold** names will be installed as **Flatpaks**
 ## Desktop
 I use GNOME as Fedora offers but with some modifications:
 ### deleted from gnome stock
-- gnome-maps
-- gnome-weather
+- **gnome-maps**
+- **gnome-weather**
 - gnome-tour
 - gnome-terminal
-- gnome-photos
-- gnome-music
-- gnome-classic
+- **gnome-photos**
+- **gnome-music**
+- gnome-classic-session
 
 ### optimizing
 - mutter-patched for smoother animations
