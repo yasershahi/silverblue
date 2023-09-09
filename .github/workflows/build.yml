@@ -35,6 +35,12 @@ jobs:
       id-token: write
     strategy:
       fail-fast: false
+      matrix:
+        major_version: 38
+        include:
+          - major_version: 38
+            is_latest: true
+            is_stable: true
 
     steps:
 
