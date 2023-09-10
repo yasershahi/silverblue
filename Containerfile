@@ -45,7 +45,8 @@ RUN rpm-ostree install \
     jetbrains-mono-fonts-all \
     code \
     python3-pip \
-    btop
+    btop \
+    cmatrix
 
 # Install codecs
 RUN rpm-ostree install \
