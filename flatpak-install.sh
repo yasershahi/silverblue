@@ -27,13 +27,14 @@ flatpaks=(
     "com.github.tchx84.Flatseal"
     "net.poedit.Poedit"
     "com.belmoussaoui.Authenticator"
+    "io.github.fabrialberio.pinapp"
     # Add more flatpak apps here
 )
 
 # Loop through the array and install the flatpak apps
 for app in "${flatpaks[@]}"; do
     echo "Installing $app..."
-    flatpak install -y "$app"
+    flatpak install flathub -y "$app"
     echo "----------------------------------"
 done
 
