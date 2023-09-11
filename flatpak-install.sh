@@ -28,6 +28,9 @@ flatpaks=(
     "net.poedit.Poedit"
     "com.belmoussaoui.Authenticator"
     "io.github.fabrialberio.pinapp"
+    "org.localsend.localsend_app"
+    "io.github.seadve.Mousai"
+    "org.gnome.Boxes"
     # Add more flatpak apps here
 )
 
