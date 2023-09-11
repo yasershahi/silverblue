@@ -14,7 +14,7 @@ COPY rootfs/usr/share/ /etc/share/
 # Remove undesired packages
 RUN rpm-ostree override remove \
     gnome-classic-session \
-    gnome-tour \
+    gnome-tour
 
 # Install needed packages
 RUN rpm-ostree install \
