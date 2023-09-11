@@ -139,6 +139,7 @@ I use GNOME as Fedora offers but with some modifications:
 - [Firefox gnome theme](https://github.com/rafaelmardojai/firefox-gnome-theme)
 - [VScode adwaita theme](https://marketplace.visualstudio.com/items?itemName=piousdeer.adwaita-theme)
 - [Thunderbird gnome theme](https://github.com/rafaelmardojai/thunderbird-gnome-theme)
+- [Telegram libadwaita theme](https://github.com/Fenimoure/Telegram-Adwaita-Dark-theme)
 
 ## Installation
 After installing Fedora Silverblue, rebase with this command:
