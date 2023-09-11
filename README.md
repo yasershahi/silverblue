@@ -83,6 +83,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - xfburn
 - tmux
 - **Flatseal**
+- **PinApp**
 
 ## Desktop
 I use GNOME as Fedora offers but with some modifications:
