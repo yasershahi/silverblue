@@ -155,6 +155,7 @@ following command:
 ## Known issues
 * Nvidia drivers not included
 * Flatpaks manual installation process
+* Signing
 
 ## Thank You 
 All credits goes to these projects:
