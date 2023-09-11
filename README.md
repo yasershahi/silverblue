@@ -91,7 +91,6 @@ I use GNOME as Fedora offers but with some modifications:
 - **gnome-maps**
 - **gnome-weather**
 - gnome-tour
-- gnome-terminal
 - **gnome-photos**
 - **gnome-music**
 - gnome-classic-session
