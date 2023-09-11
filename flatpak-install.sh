@@ -34,7 +34,7 @@ flatpaks=(
 # Loop through the array and install the flatpak apps
 for app in "${flatpaks[@]}"; do
     echo "Installing $app..."
-    flatpak install flathub -y "$app"
+    flatpak install -y flathub "$app"
     echo "----------------------------------"
 done
 
