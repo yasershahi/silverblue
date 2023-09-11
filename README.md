@@ -13,16 +13,12 @@ Apps with **bold** names will be installed as **Flatpaks**
 
 ### Development
 - VScode
-- PHP
 - python3-pip
 - **Pods**
-- devpod
-- cockpit
 - nss-tools
 - mkcert
 - podman-compose
 - podman-docker
-- distrobox
 - wireguard-tools
 - tailscale
 - cosign
@@ -81,7 +77,6 @@ Apps with **bold** names will be installed as **Flatpaks**
 - neofetch
 - cmatrix
 - xfburn
-- tmux
 - **Flatseal**
 - **PinApp**
 
@@ -98,7 +93,6 @@ I use GNOME as Fedora offers but with some modifications:
 ### optimizing
 - mutter-patched for smoother animations
 - Better font rendering
-- Replace Toolbox with Distrobox
 - Increase priority of Flathub repository
 - Replace Fedora's Flatpaks with the ones from Flathub
 - Remove unused Flatpak dependencies automatically
@@ -115,7 +109,6 @@ I use GNOME as Fedora offers but with some modifications:
 
 ### Fonts included
 - Inter
-- Jetbrains mono
 - Vazirmatn
 - Vazir code
 - Sahel
