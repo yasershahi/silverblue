@@ -23,6 +23,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - tailscale
 - cosign
 - **Poedit**
+- **gnome-boxes**
 
 ### Edit videos
 - **Flowbite**
@@ -41,6 +42,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - spotdl
 - **G4music**
 - **Podcasts**
+- **Mousai**
 
 ### Recording
 - **sound recorder**
@@ -79,6 +81,7 @@ Apps with **bold** names will be installed as **Flatpaks**
 - xfburn
 - **Flatseal**
 - **PinApp**
+- **LocalSend**
 
 ## Desktop
 I use GNOME as Fedora offers but with some modifications:
