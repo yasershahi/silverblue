@@ -18,12 +18,6 @@ RUN rpm-ostree override remove \
 
 # Install needed packages
 RUN rpm-ostree install \
-    cockpit
-    cockpit-system \
-    cockpit-ostree \
-    cockpit-podman \
-    cockpit-networkmanager \
-    cockpit-storaged \
     tailscale \
     podman-docker \
     podman-compose \
@@ -38,7 +32,6 @@ RUN rpm-ostree install \
     nss-tools \
     lm_sensors \
     wireguard-tools \
-    tmux \
     code \
     python3-pip \
     btop \
