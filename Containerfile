@@ -18,7 +18,6 @@ RUN rpm-ostree override remove \
 
 # Install needed packages
 RUN rpm-ostree install \
-    gnome-boxes \
     tailscale \
     podman-docker \
     podman-compose \
@@ -58,7 +57,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland
 
 #Cleanup & Finalize
-RUN rm -rf /tmp/* 
+RUN rm -rf /tmp/* /var/*
 RUN systemctl enable dconf-update.service && \
     rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
     systemctl enable flatpak-add-flathub-repo.service && \
