@@ -13,18 +13,18 @@ COPY rootfs/usr/share/ /etc/share/
 
 # Remove undesired packages
 RUN rpm-ostree override remove \
-    toolbox \
     gnome-classic-session \
     gnome-tour \
 
 # Install needed packages
 RUN rpm-ostree install \
+    cockpit
     cockpit-system \
     cockpit-ostree \
     cockpit-podman \
     cockpit-networkmanager \
     cockpit-storaged \
-    distrobox \
+    tailscale \
     podman-docker \
     podman-compose \
     podman-plugins \
@@ -39,7 +39,6 @@ RUN rpm-ostree install \
     lm_sensors \
     wireguard-tools \
     tmux \
-    jetbrains-mono-fonts-all \
     code \
     python3-pip \
     btop \
@@ -57,21 +56,9 @@ RUN rpm-ostree install \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices
 
-
- # Install DevPod
-RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url') && \
-  wget https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64 -O /tmp/devpod && \
-  install -c -m 0755 /tmp/devpod /usr/bin
-
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
     install -c -m 0755 /tmp/cosign /usr/bin
-
-
-# Replace Toolbox with Distrobox
-RUN mkdir -p /etc/distrobox && \
-    echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf && \
-    sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=check/' /etc/rpm-ostreed.conf
 
 # Patch mutter
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland
