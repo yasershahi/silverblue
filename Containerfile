@@ -18,6 +18,7 @@ RUN rpm-ostree override remove \
 
 # Install needed packages
 RUN rpm-ostree install \
+    gnome-boxes \
     tailscale \
     podman-docker \
     podman-compose \
