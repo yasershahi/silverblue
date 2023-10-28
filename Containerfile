@@ -77,6 +77,14 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 # Install obs
 RUN rpm-ostree install obs-studio
 
+# Install Thorium
+RUN curl -s https://api.github.com/repos/OpenTabletDriver/OpenTabletDriver/releases/latest \
+    https://api.github.com/repos/Alex313031/Thorium/releases/latest \
+    | jq -r '.assets[] | select(.name| test(".*x86_64.zip$")).browser_download_url' \
+    | wget -qi - -O /tmp/thorium.zip && \
+    unzip /tmp/thorium.zip && \
+    cd /tmp/thorium && \
+    install -c -m 0755 /tmp/thorium/thorium /usr/bin
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
