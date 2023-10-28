@@ -67,7 +67,7 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 RUN rpm-ostree install obs-studio
 
 # Install google-chrome-beta
-RUN rpm-ostree install google-chrome-beta
+RUN rpm-ostree install google-chrome-unstable
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
