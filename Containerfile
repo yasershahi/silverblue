@@ -1,4 +1,4 @@
-ARG FEDORA_MAJOR_VERSION=38
+ARG FEDORA_MAJOR_VERSION=39
 
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 # See https://pagure.io/releng/issue/11047 for final location
@@ -18,7 +18,6 @@ RUN rpm-ostree override remove \
 
 # Install needed packages
 RUN rpm-ostree install \
-    tailscale \
     podman-docker \
     podman-compose \
     podman-plugins \
@@ -34,7 +33,6 @@ RUN rpm-ostree install \
     wireguard-tools \
     code \
     python3-pip \
-    btop \
     cmatrix
 
 # Install codecs
@@ -54,7 +52,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched mutter mutter-common xorg-x11-server-Xwayland
+RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
 #Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
