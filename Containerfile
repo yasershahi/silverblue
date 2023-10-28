@@ -78,9 +78,9 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 RUN rpm-ostree install obs-studio
 
 # Install Thorium
-RUN wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157_amd64.zip -O /tmp/thorium.zip && \
-    unzip /tmp/thorium.zip && \
-    install -c -m 0755 /tmp/thorium /usr/bin
+RUN wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157_amd64.zip -O /tmp/thorium-browser_117.0.5938.157_amd64.zip && \
+    unzip /tmp/thorium-browser_117.0.5938.157_amd64.zip && \
+    install -c -m 0755 /tmp/thorium-browser_117.0.5938.157_amd64.zip/thorium /usr/bin
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
