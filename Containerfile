@@ -11,6 +11,17 @@ COPY rootfs/usr/lib/ /usr/lib/
 COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
+
+# Install Thorium
+RUN mkdir -p /tmp/thorium/ && \
+    curl -s https://api.github.com/repos/OpenTabletDriver/OpenTabletDriver/releases/latest \
+    https://api.github.com/repos/Alex313031/Thorium/releases/latest \
+    | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url' \
+    | wget -qi - -O /tmp/thorium/thorium.rpm && \
+    rpm-ostree install \
+        /tmp/thorium/*thorium*.rpm
+
+
 # Remove undesired packages
 RUN rpm-ostree override remove \
     gnome-classic-session \
