@@ -15,6 +15,7 @@ COPY rootfs/usr/share/ /etc/share/
 RUN rpm-ostree override remove \
     gnome-classic-session \
     gnome-tour
+
 # Install needed packages
 RUN rpm-ostree install \
     podman-docker \
@@ -32,7 +33,7 @@ RUN rpm-ostree install \
     wireguard-tools \
     code \
     python3-pip \
-    cmatrix \
+    cmatrix
 
 # Install codecs
 RUN rpm-ostree install \
