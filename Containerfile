@@ -18,7 +18,7 @@ RUN mkdir -p /tmp/thorium/ && \
     https://api.github.com/repos/Alex313031/Thorium/releases/latest \
     | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url' \
     | wget -qi - -O /tmp/thorium/thorium.rpm && \
-    rpm-ostree install \
+    sudo rpm-ostree install --apply-live \
         /tmp/thorium/*thorium*.rpm
 
 
