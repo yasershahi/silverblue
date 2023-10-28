@@ -33,8 +33,7 @@ RUN rpm-ostree install \
     wireguard-tools \
     code \
     python3-pip \
-    cmatrix \
-    freetype-freeworld
+    cmatrix 
 
 # Install codecs
 RUN rpm-ostree install \
