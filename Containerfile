@@ -81,6 +81,9 @@ RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releas
     wget https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64 -O /tmp/devpod && \
     install -c -m 0755 /tmp/devpod /usr/bin
 
+# Install xanmod kernel
+RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-lqx
+
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
 RUN systemctl enable dconf-update.service && \
