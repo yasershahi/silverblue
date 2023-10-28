@@ -41,7 +41,6 @@ RUN rpm-ostree install \
     liberation-sans-fonts \
     liberation-serif-fonts \
     adobe-source-code-pro-fonts \
-    cascadiacode-nerd-fonts \
     ibm-plex-mono-fonts \
     fractal \
     chromium \
@@ -59,7 +58,7 @@ RUN rpm-ostree install \
     gnome-shell-extension-unite \
     gnome-shell-extension-user-theme \
     adw-gtk3-theme 
-
+    
 # Install codecs
 RUN rpm-ostree install \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
