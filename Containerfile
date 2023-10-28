@@ -44,12 +44,7 @@ RUN rpm-ostree install \
     ibm-plex-mono-fonts \
     fractal \
     chromium \
-    la-capitaine-icon-theme \
     papirus-icon-theme \
-    pop-icon-theme \
-    suru-icon-theme \
-    papirus-icon-theme \
-    la-capitaine-cursor-theme \
     bash-color-prompt \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-dash-to-dock \
