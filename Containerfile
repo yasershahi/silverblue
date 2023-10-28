@@ -74,10 +74,10 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 RUN rpm-ostree install obs-studio
 
 # Install Thorium
-RUN rpm-ostree install --apply-live https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
+RUN rpm-ostree install $(curl https://api.github.com/repos/Alex313031/thorium/releases/latest | jq -r '.assets[] | select(.name| test(".*.x86_64.rpm$")).browser_download_url') 
 
 # Install local-by-flywheel
-RUN rpm-ostree install --apply-live https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
+RUN rpm-ostree install $(curl https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm) 
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
