@@ -1,0 +1,10 @@
+[copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer]
+name=Copr repo for mutter-triplebuffer owned by yasershahi
+baseurl=https://download.copr.fedorainfracloud.org/results/yasershahi/mutter-triplebuffer/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/yasershahi/mutter-triplebuffer/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
