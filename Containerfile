@@ -57,12 +57,6 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 # Install xanmod kernel
 RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge
 
-# Install local-by-flywheel
-RUN rpm-ostree install --apply-live https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
-
-# Install Thoriom Browser
-RUN rpm-ostree install --apply-live https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
-
 # Install obs
 RUN rpm-ostree install obs-studio
 
