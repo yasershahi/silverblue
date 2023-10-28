@@ -34,19 +34,12 @@ RUN rpm-ostree install \
     code \
     python3-pip \
     cmatrix \
-    libXScrnSaver \
-    libaio \
-    ncurses-compat-libs \
-    nspr \
-    nss \
-    nss-softokn \
-    nss-softokn-freebl \
-    nss-sysinit \
-    nss-util \
+    jetbrains-mono-fonts \
+    mozilla-fira-mono-fonts \
     liberation-fonts \
     liberation-sans-fonts \
     liberation-serif-fonts \
-    ncurses-compat-libs
+    fractal
 
 # Install codecs
 RUN rpm-ostree install \
