@@ -62,7 +62,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
 # Install xanmod kernel
-RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:jplie:kernel-xanmod kernel-xanmod-edge
+RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:jplie:kernel-lqx kernel-lqx
 
 # Install obs
 RUN rpm-ostree install obs-studio
