@@ -12,8 +12,7 @@ COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
 
-# Install Thorium
-RUN sudo rpm-ostree install --apply-live https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
+
 
 
 # Remove undesired packages
@@ -57,6 +56,9 @@ RUN rpm-ostree install \
     gnome-shell-extension-unite \
     gnome-shell-extension-user-theme \
     adw-gtk3-theme 
+
+# Install Thorium
+RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
     
 # Install codecs
 RUN rpm-ostree install \
