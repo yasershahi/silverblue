@@ -10,7 +10,7 @@ flatpaks=(
     "md.obsidian.Obsidian"
     "org.gimp.GIMP"
     "org.inkscape.Inkscape"
-    "com.github.huluti.Curtail"
+    "com.anydesk.Anydesk"
     "com.spotify.Client"
     "com.github.neithern.g4music"
     "org.gnome.Podcasts"
@@ -28,7 +28,7 @@ flatpaks=(
     "net.poedit.Poedit"
     "com.belmoussaoui.Authenticator"
     "io.github.fabrialberio.pinapp"
-    "org.localsend.localsend_app"
+    "org.audacityteam.Audacity"
     "io.github.seadve.Mousai"
     "org.gnome.Boxes"
     # Add more flatpak apps here
