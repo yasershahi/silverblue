@@ -13,13 +13,7 @@ COPY rootfs/usr/share/ /etc/share/
 
 
 # Install Thorium
-RUN mkdir -p /tmp/thorium/ && \
-    curl -s https://api.github.com/repos/OpenTabletDriver/OpenTabletDriver/releases/latest \
-    https://api.github.com/repos/Alex313031/Thorium/releases/latest \
-    | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url' \
-    | wget -qi - -O /tmp/thorium/thorium.rpm && \
-    sudo rpm-ostree install --apply-live \
-        /tmp/thorium/*thorium*.rpm
+RUN sudo rpm-ostree install --apply-live https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
 
 
 # Remove undesired packages
