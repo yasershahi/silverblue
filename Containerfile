@@ -33,7 +33,20 @@ RUN rpm-ostree install \
     wireguard-tools \
     code \
     python3-pip \
-    cmatrix
+    cmatrix \
+    libXScrnSaver \
+    libaio \
+    ncurses-compat-libs \
+    nspr \
+    nss \
+    nss-softokn \
+    nss-softokn-freebl \
+    nss-sysinit \
+    nss-tools \
+    nss-util \
+    liberation-fonts \
+    liberation-sans-fonts \
+    liberation-serif-fonts    
 
 # Install codecs
 RUN rpm-ostree install \
@@ -59,6 +72,12 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 
 # Install obs
 RUN rpm-ostree install obs-studio
+
+# Install Thorium
+RUN rpm-ostree install https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
+
+# Install local-by-flywheel
+RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
 
 #Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
