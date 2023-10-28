@@ -39,7 +39,8 @@ RUN rpm-ostree install \
     liberation-fonts \
     liberation-sans-fonts \
     liberation-serif-fonts \
-    fractal 
+    fractal \
+    chromium
 
 # Install codecs
 RUN rpm-ostree install \
