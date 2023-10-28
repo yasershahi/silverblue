@@ -55,7 +55,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
 # Install xanmod kernel
-RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-headers kernel-devel kernel-modules-extra --install kernel-xanmod-edge
+RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge
 
 # Install local-by-flywheel
 RUN wget https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm -O /tmp/local.rpm && \
