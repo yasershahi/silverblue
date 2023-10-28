@@ -74,15 +74,19 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 RUN rpm-ostree install obs-studio
 
 # Install Thorium
-RUN rpm-ostree install https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
+RUN rpm-ostree install --apply-live https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
 
 # Install local-by-flywheel
-RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
+#RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
 
 #Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
 RUN systemctl enable dconf-update.service && \
     rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
+    rm -f /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo && \
+    rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo && \
+    rm -f /etc/yum.repos.d/vscode.repo && \
+    rm -f /etc/yum/repos.d/yasershahi-mutter-triplebuffer.repo && \
     systemctl enable flatpak-add-flathub-repo.service && \
     systemctl enable flatpak-replace-fedora-apps.service && \
     systemctl enable flatpak-cleanup.timer && \
