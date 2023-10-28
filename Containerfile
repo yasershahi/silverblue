@@ -71,9 +71,13 @@ RUN rpm-ostree install \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices
 
 # Install Thorium
-RUN systemctl enable rpm-ostree-countme.service && \ 
-    rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
-
+RUN mkdir -p /tmp/thorium/ && \
+    curl -s https://api.github.com/repos/OpenTabletDriver/OpenTabletDriver/releases/latest \
+    https://api.github.com/repos/Alex313031/Thorium/releases/latest \
+    | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url' \
+    | wget -qi - -O /tmp/thorium/thorium.rpm && \
+    rpm-ostree install --allow-inactive --force-replacefiles \
+        /tmp/thorium/thorium.rpm
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
