@@ -57,8 +57,6 @@ RUN rpm-ostree install \
     gnome-shell-extension-user-theme \
     adw-gtk3-theme 
 
-# Install Thorium
-RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
     
 # Install codecs
 RUN rpm-ostree install \
@@ -71,6 +69,11 @@ RUN rpm-ostree install \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices
+
+# Install Thorium
+RUN systemctl enable rpm-ostree-countme.service && \ 
+    rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
+
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
