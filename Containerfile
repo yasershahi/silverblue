@@ -16,6 +16,18 @@ RUN rpm-ostree override remove \
     gnome-classic-session \
     gnome-tour
 
+# Install codecs
+RUN rpm-ostree install \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
+    rpm-ostree install rpmfusion-free-release rpmfusion-nonfree-release \
+    --uninstall rpmfusion-free-release \
+    --uninstall rpmfusion-nonfree-release && \
+    rpm-ostree install intel-media-driver libva-intel-driver && \
+    rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
+    rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
+    rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices
+
 # Install needed packages
 RUN rpm-ostree install \
     podman-docker \
@@ -33,19 +45,9 @@ RUN rpm-ostree install \
     wireguard-tools \
     code \
     python3-pip \
-    cmatrix 
+    cmatrix \
+    obs-studio
 
-# Install codecs
-RUN rpm-ostree install \
-    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm && \
-    rpm-ostree install rpmfusion-free-release rpmfusion-nonfree-release \
-    --uninstall rpmfusion-free-release \
-    --uninstall rpmfusion-nonfree-release && \
-    rpm-ostree install intel-media-driver libva-intel-driver && \
-    rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
-    rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
-    rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
@@ -58,7 +60,7 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge
 
 # Install local-by-flywheel
-RUN rpm-ostree install https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
+#RUN rpm-ostree install https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
 
 # Install Thoriom Browser
 RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
