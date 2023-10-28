@@ -73,8 +73,8 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 # Install obs
 RUN rpm-ostree install obs-studio
 
-# Install local-by-flywheel
-RUN rpm-ostree install $(curl https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm) 
+# Install google-chrome-beta
+RUN rpm-ostree install google-chrome-beta
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
