@@ -39,7 +39,7 @@ RUN rpm-ostree install \
     liberation-fonts \
     liberation-sans-fonts \
     liberation-serif-fonts \
-    fractal
+    fractal 
 
 # Install codecs
 RUN rpm-ostree install \
@@ -66,8 +66,6 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 # Install obs
 RUN rpm-ostree install obs-studio
 
-# Install google-chrome-beta
-RUN rpm-ostree install google-chrome-unstable
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
