@@ -31,6 +31,7 @@ flatpaks=(
     "org.audacityteam.Audacity"
     "io.github.seadve.Mousai"
     "org.gnome.Boxes"
+    "net.agalwood.Motrix"
     # Add more flatpak apps here
 )
 
