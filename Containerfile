@@ -12,9 +12,6 @@ COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
 
-
-
-
 # Remove undesired packages
 RUN rpm-ostree override remove \
     gnome-classic-session \
@@ -69,15 +66,6 @@ RUN rpm-ostree install \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi steam-devices
-
-# Install Thorium
-RUN mkdir -p /tmp/thorium/ && \
-    curl -s https://api.github.com/repos/OpenTabletDriver/OpenTabletDriver/releases/latest \
-    https://api.github.com/repos/Alex313031/Thorium/releases/latest \
-    | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url' \
-    | wget -qi - -O /tmp/thorium/thorium.rpm && \
-    rpm-ostree install --allow-inactive --force-replacefiles \
-        /tmp/thorium/thorium.rpm
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
