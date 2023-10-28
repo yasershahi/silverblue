@@ -14,7 +14,8 @@ COPY rootfs/usr/share/ /etc/share/
 # Remove undesired packages
 RUN rpm-ostree override remove \
     gnome-classic-session \
-    gnome-tour
+    gnome-tour \
+    gnome-extensions-app
 
 # Install needed packages
 RUN rpm-ostree install \
@@ -27,6 +28,7 @@ RUN rpm-ostree install \
     aria2 \
     neofetch \
     xfburn \
+    net-tools \
     yt-dlp \
     nss-tools \
     lm_sensors \
@@ -39,8 +41,25 @@ RUN rpm-ostree install \
     liberation-fonts \
     liberation-sans-fonts \
     liberation-serif-fonts \
+    adobe-source-code-pro-fonts \
+    cascadiacode-nerd-fonts \
+    ibm-plex-mono-fonts \
     fractal \
-    chromium
+    chromium \
+    la-capitaine-icon-theme \
+    papirus-icon-theme \
+    pop-icon-theme \
+    suru-icon-theme \
+    papirus-icon-theme \
+    la-capitaine-cursor-theme \
+    bash-color-prompt \
+    gnome-shell-extension-appindicator \
+    gnome-shell-extension-dash-to-dock \
+    gnome-shell-extension-light-style \
+    gnome-shell-extension-system-monitor-applet \
+    gnome-shell-extension-unite \
+    gnome-shell-extension-user-theme \
+    adw-gtk3-theme 
 
 # Install codecs
 RUN rpm-ostree install \
@@ -61,12 +80,13 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 # Patch mutter
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
-# Install xanmod kernel
-RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-lqx
-
 # Install obs
 RUN rpm-ostree install obs-studio
 
+# Install DevPod
+RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url') && \
+    wget https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64 -O /tmp/devpod && \
+    install -c -m 0755 /tmp/devpod /usr/bin
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
