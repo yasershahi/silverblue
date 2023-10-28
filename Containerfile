@@ -58,12 +58,10 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge
 
 # Install local-by-flywheel
-RUN wget https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm -O /tmp/local.rpm && \
-    rpm-ostree install /tmp/local.rpm
+RUN rpm-ostree install https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm
 
 # Install Thoriom Browser
-RUN wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm -O /tmp/thorium.rpm && \
-    rpm-ostree install /tmp/thorium.rpm
+RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm
 
 #Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
