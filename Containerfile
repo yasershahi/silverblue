@@ -11,6 +11,11 @@ COPY rootfs/usr/lib/ /usr/lib/
 COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
+
+# Install Thorium
+RUN rpm-ostree install $(curl https://api.github.com/repos/Alex313031/Thorium/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url')
+
+
 # Remove undesired packages
 RUN rpm-ostree override remove \
     gnome-classic-session \
@@ -21,7 +26,7 @@ RUN rpm-ostree install \
     podman-docker \
     podman-compose \
     podman-plugins \
-    wireguard-tools \
+    tito \
     gnome-tweaks \
     unrar \
     aria2 \
@@ -43,7 +48,6 @@ RUN rpm-ostree install \
     adobe-source-code-pro-fonts \
     ibm-plex-mono-fonts \
     fractal \
-    chromium \
     papirus-icon-theme \
     bash-color-prompt \
     gnome-shell-extension-appindicator \
@@ -76,10 +80,6 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 # Install obs
 RUN rpm-ostree install obs-studio
 
-# Install DevPod
-RUN rpm-ostree install $(curl https://api.github.com/repos/loft-sh/devpod/releases/latest | jq -r '.assets[] | select(.name| test(".*x86_64.rpm$")).browser_download_url') && \
-    wget https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64 -O /tmp/devpod && \
-    install -c -m 0755 /tmp/devpod /usr/bin
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
