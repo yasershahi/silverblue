@@ -14,8 +14,8 @@ COPY rootfs/usr/share/ /etc/share/
 # Enable cliwrap.
 RUN rpm-ostree cliwrap install-to-root /
 
-# Install xanmod kernel
-RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge && \
+# Install lqx kernel
+RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-lqx && \
     ostree container commit
 
 # Remove undesired packages
