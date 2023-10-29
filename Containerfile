@@ -2,7 +2,7 @@ ARG FEDORA_MAJOR_VERSION=39
 
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 # See https://pagure.io/releng/issue/11047 for final location
-
+RUN setsebool -P -N container_manage_cgroup 1
 
 # Copy files over root
 COPY rootfs/etc/dconf/ /etc/dconf/
@@ -10,10 +10,6 @@ COPY rootfs/etc/yum.repos.d/ /etc/yum.repos.d/
 COPY rootfs/usr/lib/ /usr/lib/
 COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
-
-# Install thorium
-RUN wget https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm -O /tmp/local.rpm && \
-    rpm-ostree install /tmp/local*.rpm
 
 # Enable cliwrap.
 RUN rpm-ostree cliwrap install-to-root /
@@ -99,6 +95,11 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 
 # Patch mutter
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
+
+
+# Install thorium
+RUN wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm -O /tmp/thorium.rpm && \
+    rpm-ostree install /tmp/thorium.rpm
 
 
 
