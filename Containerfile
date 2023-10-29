@@ -13,7 +13,7 @@ COPY rootfs/usr/share/ /etc/share/
 
 
 # Install xanmod kernel
-RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --kernel-xanmod-edge && \
+RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge && \
     ostree container commit
 
 # Remove undesired packages
