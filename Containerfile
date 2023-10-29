@@ -92,7 +92,7 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 RUN rpm-ostree cliwrap install-to-root /
 
 # Install lqx kernel
-RUN sudo rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-extra --install kernel-lxq kernel-lqx-devel kernel-lqx-headers && \
+RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-lqx && \
     ostree container commit
 
 # Cleanup & Finalize
