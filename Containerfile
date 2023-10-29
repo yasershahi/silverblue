@@ -43,9 +43,9 @@ RUN rpm-ostree install \
     liberation-serif-fonts \
     adobe-source-code-pro-fonts \
     ibm-plex-mono-fonts \
+    google-cousine-fonts \
     fractal \
     papirus-icon-theme \
-    bash-color-prompt \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-dash-to-dock \
     gnome-shell-extension-light-style \
@@ -73,9 +73,6 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 
 # Patch mutter
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
-
-# Install obs
-RUN rpm-ostree install obs-studio
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
