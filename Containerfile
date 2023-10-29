@@ -11,12 +11,18 @@ COPY rootfs/usr/lib/ /usr/lib/
 COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
+# Install thorium
+RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm && \
+    ostree container commit
+
 # Enable cliwrap.
 RUN rpm-ostree cliwrap install-to-root /
 
 # Install lqx kernel
 RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-lqx && \
     ostree container commit
+
+
 
 # Remove undesired packages
 RUN rpm-ostree override remove \
