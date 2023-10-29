@@ -88,10 +88,11 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 # Patch mutter
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
-# Install lqx kernel
 # Enable cliwrap.
 RUN rpm-ostree cliwrap install-to-root /
-    sudo rpm-ostree override remove kernel kernel-core kernel-modules kernel-headers kernel-devel kernel-modules-extra --install kernel-lxq kernel-lqx-devel kernel-lqx-headers && \
+
+# Install lqx kernel
+sudo rpm-ostree override remove kernel kernel-core kernel-modules kernel-headers kernel-devel kernel-modules-extra --install kernel-lxq kernel-lqx-devel kernel-lqx-headers && \
     ostree container commit
 
 # Cleanup & Finalize
