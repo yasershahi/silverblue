@@ -12,8 +12,8 @@ COPY rootfs/usr/local/ /etc/local/
 COPY rootfs/usr/share/ /etc/share/
 
 # Install thorium
-RUN rpm-ostree install https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157.x86_64.rpm && \
-    ostree container commit
+RUN wget https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm -O /tmp/local.rpm && \
+    rpm-ostree install /tmplocal.rpm
 
 # Enable cliwrap.
 RUN rpm-ostree cliwrap install-to-root /
