@@ -13,7 +13,7 @@ COPY rootfs/usr/share/ /etc/share/
 
 # Install thorium
 RUN wget https://cdn.localwp.com/releases-stable/8.0.1+6490/local-8.0.1-linux.rpm -O /tmp/local.rpm && \
-    rpm-ostree install /tmplocal.rpm
+    rpm-ostree install /tmp/local*.rpm
 
 # Enable cliwrap.
 RUN rpm-ostree cliwrap install-to-root /
