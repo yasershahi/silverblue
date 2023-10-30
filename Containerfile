@@ -76,7 +76,8 @@ RUN rpm-ostree install \
     virt-manager \
     obs-studio \
     thorium-browser \
-    local-8.1
+    local \
+    google-chrome-beta
 
     
 # Install codecs
