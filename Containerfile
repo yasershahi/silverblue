@@ -74,7 +74,9 @@ RUN rpm-ostree install \
     qemu-user-static \
     qemu \
     virt-manager \
-    obs-studio
+    obs-studio \
+    thorium-browser \
+    local-8.1
 
     
 # Install codecs
@@ -96,8 +98,6 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
 # Patch mutter
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
-# Install chrome
-RUN sudo rpm-ostree install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 
 # Cleanup & Finalize
 RUN rm -rf /tmp/* /var/*
