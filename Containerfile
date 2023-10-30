@@ -74,7 +74,6 @@ RUN rpm-ostree install \
     qemu-user-static \
     qemu \
     virt-manager \
-    google-chrome-stable \
     obs-studio
 
     
