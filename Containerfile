@@ -24,7 +24,7 @@ RUN rpm-ostree override remove \
     gnome-classic-session \
     gnome-tour \
     xorg-x11-drv-intel \
-    google-droid-sans-fonts
+    libgs
 
 # Install needed packages
 RUN rpm-ostree install \
