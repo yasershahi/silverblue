@@ -2,4 +2,4 @@
 name=Yaser Update Server
 baseurl=http://repo.yasershahi.com/repo/extrarpm/updates
 enabled=1
-gpgcheck=1
+gpgcheck=0
