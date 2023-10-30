@@ -74,7 +74,9 @@ RUN rpm-ostree install \
     qemu-user-static \
     qemu \
     virt-manager \
-    obs-studio 
+    obs-studio \
+    chromium \
+    fedora-chromium-config-gnome
     
 # Install codecs
 RUN rpm-ostree install \
