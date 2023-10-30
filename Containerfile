@@ -23,8 +23,7 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 RUN rpm-ostree override remove \
     gnome-classic-session \
     gnome-tour \
-    xorg-x11-drv-intel \
-    libgs
+    xorg-x11-drv-intel
 
 # Install needed packages
 RUN rpm-ostree install \
@@ -76,8 +75,7 @@ RUN rpm-ostree install \
     qemu \
     virt-manager \
     obs-studio \
-    chromium \
-    fedora-chromium-config-gnome
+    chromium
     
 # Install codecs
 RUN rpm-ostree install \
