@@ -23,7 +23,8 @@ RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-
 RUN rpm-ostree override remove \
     gnome-classic-session \
     gnome-tour \
-    xorg-x11-drv-intel
+    xorg-x11-drv-intel \
+    google-droid-sans-fonts
 
 # Install needed packages
 RUN rpm-ostree install \
