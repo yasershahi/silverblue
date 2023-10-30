@@ -75,9 +75,7 @@ RUN rpm-ostree install \
     qemu \
     virt-manager \
     obs-studio \
-    thorium-browser \
-    local
-
+    thorium-browser 
     
 # Install codecs
 RUN rpm-ostree install \
