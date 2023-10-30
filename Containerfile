@@ -73,8 +73,7 @@ RUN rpm-ostree install \
     qemu-user-binfmt \
     qemu-user-static \
     qemu \
-    virt-manager \
-    obs-studio
+    virt-manager
     
 # Install codecs
 RUN rpm-ostree install \
