@@ -83,7 +83,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
+RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:trixieua:mutter-patched gnome-shell mutter mutter-common xorg-x11-server-Xwayland
 
 
 # Cleanup & Finalize
@@ -94,6 +94,7 @@ RUN systemctl enable dconf-update.service && \
     rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo && \
     rm -f /etc/yum.repos.d/vscode.repo && \
     rm -f /etc/yum.repos.d/yasershahi-mutter-triplebuffer.repo && \
+    rm -f /etc/yum.repos.d/trixieua-mutter-patched.repo && \
     rm -f /etc/yum.repos.d/jplie-kernel-lqx.repo && \
     rm -f /etc/yum.repos.d/jplie-kernel-xanmod.repo && \
     systemctl enable flatpak-add-flathub-repo.service && \
