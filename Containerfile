@@ -28,7 +28,6 @@ RUN rpm-ostree install \
     podman-docker \
     podman-compose \
     podman-plugins \
-    tito \
     gnome-tweaks \
     unrar \
     aria2 \
@@ -51,15 +50,9 @@ RUN rpm-ostree install \
     ibm-plex-mono-fonts \
     google-cousine-fonts \
     fractal \
-    gnome-shell-extension-appindicator \
-    gnome-shell-extension-dash-to-dock \
-    gnome-shell-extension-light-style \
-    gnome-shell-extension-system-monitor-applet \
-    gnome-shell-extension-user-theme \
     adw-gtk3-theme \
     bash-color-prompt \
-    distrobox \
-    libvirt
+    distrobox
     
 # Install codecs
 RUN rpm-ostree install \
