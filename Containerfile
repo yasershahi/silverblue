@@ -51,27 +51,15 @@ RUN rpm-ostree install \
     ibm-plex-mono-fonts \
     google-cousine-fonts \
     fractal \
-    papirus-icon-theme \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-dash-to-dock \
     gnome-shell-extension-light-style \
     gnome-shell-extension-system-monitor-applet \
-    gnome-shell-extension-unite \
     gnome-shell-extension-user-theme \
     adw-gtk3-theme \
     bash-color-prompt \
     distrobox \
-    libvirt \
-    qemu-char-spice \
-    qemu-device-display-virtio-gpu \
-    qemu-device-display-virtio-vga \
-    qemu-device-usb-redirect \
-    qemu-img \
-    qemu-system-x86-core \
-    qemu-user-binfmt \
-    qemu-user-static \
-    qemu \
-    virt-manager
+    libvirt
     
 # Install codecs
 RUN rpm-ostree install \
