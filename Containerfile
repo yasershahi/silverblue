@@ -51,7 +51,9 @@ RUN rpm-ostree install \
     fractal \
     adw-gtk3-theme \
     bash-color-prompt \
-    distrobox
+    distrobox \
+    NetworkManager-sstp \
+    NetworkManager-sstp-gnome
     
 # Install codecs
 RUN rpm-ostree install \
