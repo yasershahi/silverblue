@@ -7,14 +7,6 @@ FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 COPY rootfs/etc/dconf/ /etc/dconf/
 COPY rootfs/etc/yum.repos.d/ /etc/yum.repos.d/
 COPY rootfs/usr/lib/ /usr/lib/
-COPY rootfs/usr/local/ /etc/local/
-COPY rootfs/usr/share/ /etc/share/
-
-# Enable cliwrap.
-RUN rpm-ostree cliwrap install-to-root /
-
-# Install lqx kernel
-RUN rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-xanmod-edge
 
 # Remove undesired packages
 RUN rpm-ostree override remove \
@@ -24,11 +16,10 @@ RUN rpm-ostree override remove \
 
 # Install needed packages
 RUN rpm-ostree install \
-    podman-docker \
-    podman-compose \
-    podman-plugins \
     gnome-tweaks \
     unrar \
+    p7zip \
+    p7zip-plugins \
     aria2 \
     neofetch \
     xfburn \
@@ -37,23 +28,28 @@ RUN rpm-ostree install \
     nss-tools \
     lm_sensors \
     wireguard-tools \
-    code \
-    python3-pip \
     cmatrix \
     jetbrains-mono-fonts \
-    mozilla-fira-mono-fonts \
+    fira-code-fonts \
     liberation-fonts \
     liberation-sans-fonts \
     liberation-serif-fonts \
-    adobe-source-code-pro-fonts \
     ibm-plex-mono-fonts \
     google-cousine-fonts \
     fractal \
     adw-gtk3-theme \
-    bash-color-prompt \
+    adwaita-gtk2-theme \
     distrobox \
+    sstp-client \
     NetworkManager-sstp \
-    NetworkManager-sstp-gnome
+    NetworkManager-sstp-gnome \
+    yaru-gtk2-theme \
+    yaru-gtk3-theme \
+    yaru-gtk4-theme \
+    yaru-gtksourceview-theme \
+    yaru-icon-theme \
+    yaru-sound-theme \
+    yaru-theme
     
 # Install codecs
 RUN rpm-ostree install \
@@ -67,12 +63,16 @@ RUN rpm-ostree install \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
 
+#Install NVIDIA
+RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda && \
+    rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-#RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter-45.0-1.fc39.tripplebuffer.x86_64 mutter-common-45.0-1.fc39.tripplebuffer.noarch
+#RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
 
 # Cleanup & Finalize
@@ -81,11 +81,7 @@ RUN systemctl enable dconf-update.service && \
     rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
     rm -f /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo && \
     rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo && \
-    rm -f /etc/yum.repos.d/vscode.repo && \
     rm -f /etc/yum.repos.d/yasershahi-mutter-triplebuffer.repo && \
-    rm -f /etc/yum.repos.d/trixieua-mutter-patched.repo && \
-    rm -f /etc/yum.repos.d/jplie-kernel-lqx.repo && \
-    rm -f /etc/yum.repos.d/jplie-kernel-xanmod.repo && \
     systemctl enable flatpak-add-flathub-repo.service && \
     systemctl enable flatpak-replace-fedora-apps.service && \
     systemctl enable flatpak-cleanup.timer && \
