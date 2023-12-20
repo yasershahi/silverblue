@@ -5,6 +5,7 @@ flatpaks=(
     "com.anydesk.Anydesk"
     "org.audacityteam.Audacity"
     "com.belmoussaoui.Authenticator"
+    "com.brave.Browser"
     "ca.desrt.dconf-editor"
     "com.mattjakeman.ExtensionManager"
     "com.github.tchx84.Flatseal"
