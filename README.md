@@ -52,7 +52,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 ### Scripts
 - [Figma font agent](https://github.com/neetly/figma-agent-linux)
 
-## Settings
+## optimizations
 - mutter-patched for smoother animations
 - Xanmod Kernel for responsivness
 - Increase priority of Flathub repository
