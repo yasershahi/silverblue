@@ -1,140 +1,63 @@
 [![build-image](https://github.com/yasershahi/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/yasershahi/silverblue/actions/workflows/build.yml)
 
 # silverblue
-This is my Fedora Silverblue Image.
+This is my Fedora Silverblue Image. I daily drive this image on my main machine (ThinkPad X1 Extreme). You can fork it, customize and use it.
 
-## What I do with my system
-Apps with **bold** names will be installed as **Flatpaks**
+## Flatpak Apps
+- Authenticator
+- Obsidian
+- NewsFlash
+- GIMP
+- Inkscape
+- Lunacy
+- KDEnlive
+- Sound Recorder
+- Gnome Boxes
+- Poedit
+- VSCode
+- G4music
+- Podcasts
+- Mousai
+- Spotify
+- Telegram
+- LibreOffice
+- Thunderbird
+- VLC
+- Parabolic
+- Motrix
+- Flatseal
+- PinApp
+- Resources
 
-### UI/UX Design
-- **Lunacy**
-- **Boxysvg**
-- [Figma font agent](https://github.com/neetly/figma-agent-linux)
-
-### Development
-- VScode
-- python3-pip
-- **Pods**
+### Extra Packages
 - nss-tools
-- mkcert
-- podman-compose
-- podman-docker
-- wireguard-tools
-- tailscale
-- cosign
-- **Poedit**
-- **gnome-boxes**
-
-### Edit videos
-- **Flowbite**
-- **MKVToolsnix**
-
-### Take notes
-- **Obsidian**
-
-### Edit photos & graphics
-- **GIMP**
-- **Inkscape**
-- **Curtail**
-
-### Listen to music
-- **Spotify**
-- spotdl
-- **G4music**
-- **Podcasts**
-- **Mousai**
-
-### Recording
-- **sound recorder**
-
-### Read news / surf web
-- Firefox
-- **newsflash**
-
-### Communicate
-- **Telegram**
-- **Discord**
-- **Element**
-- **Thunderbird**
-
-### Watch Movies
-- **VLC**
-- **Jellyfin Server**
-
-### Work with documents
-- **LibreOffice**
-
-### Download files
 - aria2
-- XDM (not included yet)
-- **Parabolic**
-- yt-dlp
-
-## Ease of life
-- **Authenticator**
-- codecs
-- unrar
-- btop
+- distrobox
+- sstp-client
+- xfburn
 - lm_sensors
+- cosign
+- yt-dlp
+- unrar
+- p7zip
+- p7zip-plugins
 - neofetch
 - cmatrix
-- xfburn
-- **Flatseal**
-- **PinApp**
-- **LocalSend**
+- fractal
+- codects
 
-## Desktop
-I use GNOME as Fedora offers but with some modifications:
-### deleted from gnome stock
-- **gnome-maps**
-- **gnome-weather**
-- gnome-tour
-- **gnome-photos**
-- **gnome-music**
-- gnome-classic-session
+## Extra Resources
+- [Figma font agent](https://github.com/neetly/figma-agent-linux)
 
 ### optimizing
 - mutter-patched for smoother animations
-- Better font rendering
+- Xanmod Kernel for responsivness
 - Increase priority of Flathub repository
-- Replace Fedora's Flatpaks with the ones from Flathub
-- Remove unused Flatpak dependencies automatically
 - Set automatic checking of updates for the system
 - Reduce systemd shutdown timers
 
 ### Settings
 - enable tap to click
-- make curser bigger
-- disable automatic suspend
-- disable unnecessary search
-- disable file history
-- automatic empty trash in 7 days
-
-### Fonts included
-- Inter
-- Vazirmatn
-- Vazir code
-- Sahel
-- Gandom
-- Tanha
-- Nahid
-- Parastoo
-- Samim
-- Shabnam
-- Mikhak
-- Estedad
-
-### Repositories included
-- RPMfution
-- mutter-patched
-- tailscale
-- vscode
-
-### Customization
-- [Firefox gnome theme](https://github.com/rafaelmardojai/firefox-gnome-theme)
-- [VScode adwaita theme](https://marketplace.visualstudio.com/items?itemName=piousdeer.adwaita-theme)
-- [Thunderbird gnome theme](https://github.com/rafaelmardojai/thunderbird-gnome-theme)
-- [Telegram libadwaita theme](https://github.com/Fenimoure/Telegram-Adwaita-Dark-theme)
 
 ## Installation
 After installing Fedora Silverblue, rebase with this command:
@@ -146,11 +69,6 @@ signature by downloading the `cosign.pub` key from this repo and running the
 following command:
 
     cosign verify --key cosign.pub ghcr.io/yasershahi/silverblue
-
-## Known issues
-* Nvidia drivers not included
-* Flatpaks manual installation process
-* Signing
 
 ## Thank You 
 All credits goes to these projects:
