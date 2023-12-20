@@ -30,6 +30,9 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - Resources
 - HandBrake
 - OBS-Studio
+- Dconf-editor
+- Gradience
+- Extension Manager
 
 ### Packages
 - nss-tools
@@ -47,6 +50,11 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - cmatrix
 - fractal
 - codects
+- gnome-tweaks
+
+### Drivers
+- Nvidia Drivers with CUDA
+- Intel media driver
 
 ### Distrobox
 - Local by Flywheel
@@ -55,13 +63,40 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 ### Scripts
 - [Figma font agent](https://github.com/neetly/figma-agent-linux)
 
-## optimizations
+### FireFox Add-ons
+- [Floccus](https://addons.mozilla.org/en-US/firefox/addon/floccus/)
+- [uBlock Origin](https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/)
+- [Bitwarden - Free Password Manager](https://addons.mozilla.org/en-US/firefox/addon/bitwarden-password-manager)
+- [I still don't care about cookies](https://addons.mozilla.org/en-US/firefox/addon/istilldontcareaboutcookies/)
+- [Copy Selected Links](https://addons.mozilla.org/en-US/firefox/addon/copy-selected-links/)
+
+## Optimizations
 - mutter-patched for smoother animations
-- Xanmod Kernel for responsivness
 - Increase priority of Flathub repository
 - Set automatic checking of updates for the system
 - Reduce systemd shutdown timers
-- enable tap to click
+- Enable tap to click
+- auto-cpufreq for better battery life
+
+## Customization
+### Gnome Plugins
+- Dash to Dock
+- User themes
+- AppIndicator and KStatusNotifierItem
+
+### Fonts
+- Fira code
+- Jetbrains mono
+- ubuntu Fonts (not included)
+
+### Themes
+- adw-gtk3-theme
+- yaru themes
+
+
+### Icons
+- [Fluent icon theme](https://github.com/vinceliuice/Fluent-icon-theme)
+- [macOS Cursors](https://github.com/ful1e5/apple_cursor)
 
 ## Installation
 After installing Fedora Silverblue, rebase with this command:
