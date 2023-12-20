@@ -91,9 +91,6 @@ Note: Post install after rebase
 - Dash to Dock
 - User themes
 - AppIndicator and KStatusNotifierItem
-- Light Shell
-- Blur My Shell
-- Blur My Light Shell
 - Just Perfection
 
 ### Fonts
