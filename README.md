@@ -72,6 +72,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 
 ## Optimizations
 - mutter-patched for smoother animations
+- RPM Fusion included
 - Increase priority of Flathub repository
 - Set automatic checking of updates for the system
 - Reduce systemd shutdown timers
@@ -88,6 +89,9 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - Fira code
 - Jetbrains mono
 - ubuntu Fonts (not included)
+- ibm-plex-mono-fonts
+- google-cousine-fonts
+- liberation-fonts
 
 ### Themes
 - adw-gtk3-theme
