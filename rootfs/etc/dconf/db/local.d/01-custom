@@ -1,12 +1,9 @@
 [org/gnome/desktop/interface]
-clock-show-weekday=true
-font-antialiasing="rgba"
-
-[org/gnome/desktop/sound]
-allow-volume-above-100-percent=true
+clock-show-date=false
+font-hinting="none"
 
 [org/gnome/desktop/peripherals/touchpad]
 tap-to-click=true
 
 [org/gnome/mutter]
-experimental-features=['scale-monitor-framebuffer']
+experimental-features=['']
