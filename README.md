@@ -48,7 +48,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - fractal
 - codects
 
-### Inside Boexes
+### Distrobox
 - Local by Flywheel
 - DVD Styler
 
