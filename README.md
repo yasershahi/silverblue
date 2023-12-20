@@ -4,35 +4,37 @@
 This is my Fedora Silverblue Image. I daily drive this image on my main machine (ThinkPad X1 Extreme). You can fork it, customize and use it.
 ## Apps
 ### Flatpak
+- AnyDesk
+- Audacity
 - Authenticator
-- Obsidian
-- NewsFlash
-- GIMP
-- Inkscape
-- Lunacy
-- KDEnlive
-- Sound Recorder
-- Gnome Boxes
-- Poedit
-- VSCode
+- Dconf-editor
+- Extension Manager
+- Flatseal
 - G4music
-- Podcasts
+- GIMP
+- Gnome Boxes
+- Gradience
+- HandBrake
+- Inkscape
+- KDEnlive
+- LibreOffice
+- Lunacy
+- Motrix
 - Mousai
+- NewsFlash
+- OBS-Studio
+- Obsidian
+- Parabolic
+- PinApp
+- Podcast
+- Poedit
+- Resources
+- Sound Recorder
 - Spotify
 - Telegram
-- LibreOffice
 - Thunderbird
 - VLC
-- Parabolic
-- Motrix
-- Flatseal
-- PinApp
-- Resources
-- HandBrake
-- OBS-Studio
-- Dconf-editor
-- Gradience
-- Extension Manager
+- VSCode
 
 ### Packages
 - nss-tools
