@@ -2,8 +2,8 @@
 
 # silverblue
 This is my Fedora Silverblue Image. I daily drive this image on my main machine (ThinkPad X1 Extreme). You can fork it, customize and use it.
-
-## Flatpak Apps
+## Apps
+### Flatpak
 - Authenticator
 - Obsidian
 - NewsFlash
@@ -29,7 +29,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - PinApp
 - Resources
 
-### Extra Packages
+### Packages
 - nss-tools
 - aria2
 - distrobox
@@ -46,17 +46,18 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - fractal
 - codects
 
-## Extra Resources
+### RPMs
+- Local by Flywheel
+
+### Scripts
 - [Figma font agent](https://github.com/neetly/figma-agent-linux)
 
-### optimizing
+## Settings
 - mutter-patched for smoother animations
 - Xanmod Kernel for responsivness
 - Increase priority of Flathub repository
 - Set automatic checking of updates for the system
 - Reduce systemd shutdown timers
-
-### Settings
 - enable tap to click
 
 ## Installation
