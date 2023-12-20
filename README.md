@@ -58,9 +58,9 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 ### Drivers
 - Nvidia Drivers with CUDA
 - Intel media driver
+ 
+Note: Post install after rebase
 
-  After rebase run this for NVIDIA:
-  
     rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
 
 ### Distrobox
