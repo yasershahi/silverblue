@@ -68,9 +68,7 @@ RUN rpm-ostree install \
 RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda
 
 # Install auto-cpufreq
-RUN cd /tmp \
-    git clone https://github.com/AdnanHodzic/auto-cpufreq.git \
-    cd auto-cpufreq && sudo ./auto-cpufreq-installer
+RUN cd /tmp && git clone https://github.com/AdnanHodzic/auto-cpufreq.git && cd auto-cpufreq && sudo ./auto-cpufreq-installer
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
