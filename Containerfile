@@ -64,8 +64,7 @@ RUN rpm-ostree install \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
 
 #Install NVIDIA
-RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda && \
-    rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
