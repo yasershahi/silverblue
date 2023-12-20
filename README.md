@@ -7,6 +7,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - AnyDesk
 - Audacity
 - Authenticator
+- Brave Browser
 - Dconf-editor
 - Extension Manager
 - Flatseal
