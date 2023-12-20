@@ -28,6 +28,8 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - Flatseal
 - PinApp
 - Resources
+- HandBrake
+- OBS-Studio
 
 ### Packages
 - nss-tools
@@ -46,8 +48,9 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - fractal
 - codects
 
-### RPMs
+### Inside Boexes
 - Local by Flywheel
+- DVD Styler
 
 ### Scripts
 - [Figma font agent](https://github.com/neetly/figma-agent-linux)
