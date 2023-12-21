@@ -32,11 +32,7 @@ RUN rpm-ostree install \
     cmatrix \
     jetbrains-mono-fonts \
     fira-code-fonts \
-    liberation-fonts \
-    liberation-sans-fonts \
-    liberation-serif-fonts \
     ibm-plex-mono-fonts \
-    google-cousine-fonts \
     fractal \
     adw-gtk3-theme \
     adwaita-gtk2-theme \
@@ -63,10 +59,6 @@ RUN rpm-ostree install \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
-
-# Install NVIDIA
-RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda
-RUN rpm-ostree install nvidia-vaapi-driver libva-utils vdpauinfo nvidia-container-toolkit
 
 # Install auto-cpufreq
 RUN cd /tmp && \
