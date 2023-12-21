@@ -9,63 +9,22 @@ COPY rootfs/etc/yum.repos.d/ /etc/yum.repos.d/
 COPY rootfs/usr/lib/ /usr/lib/
 
 # Enable cliwrap.
-RUN rpm-ostree cliwrap install-to-root /
+# RUN rpm-ostree cliwrap install-to-root /
 
 # Remove undesired packages
-RUN rpm-ostree override remove \
-    gnome-classic-session \
-    gnome-tour \
-    xorg-x11-drv-intel
+# RUN rpm-ostree override remove \
+#   gnome-tour 
 
 # Install needed packages
 RUN rpm-ostree install \
     gnome-tweaks \
     unrar \
-    p7zip \
-    p7zip-plugins \
     aria2 \
     neofetch \
-    xfburn \
-    net-tools \
-    yt-dlp \
-    nss-tools \
     lm_sensors \
-    wireguard-tools \
-    cmatrix \
-    jetbrains-mono-fonts \
-    fira-code-fonts \
-    liberation-fonts \
-    liberation-sans-fonts \
-    liberation-serif-fonts \
-    ibm-plex-mono-fonts \
-    google-cousine-fonts \
-    fractal \
-    adw-gtk3-theme \
-    adwaita-gtk2-theme \
     sstp-client \
     NetworkManager-sstp \
-    NetworkManager-sstp-gnome \
-    yaru-gtk2-theme \
-    yaru-gtk3-theme \
-    yaru-gtk4-theme \
-    yaru-gtksourceview-theme \
-    yaru-icon-theme \
-    yaru-sound-theme \
-    yaru-theme \
-    libvirt \
-    qemu-char-spice \
-    qemu-device-display-virtio-gpu \
-    qemu-device-display-virtio-vga \
-    qemu-device-usb-redirect \
-    qemu-img \
-    qemu-system-x86-core \
-    qemu-user-binfmt \
-    qemu-user-static \
-    qemu \
-    virt-manager \
-    gnome-boxes \
-    dconf-editor \
-    flatseal
+    NetworkManager-sstp-gnome
     
     
 # Install codecs
@@ -87,18 +46,12 @@ RUN rpm-ostree install distrobox && \
     mkdir -p /etc/distrobox && \
     echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf
 
-# Install auto-cpufreq
-RUN cd /tmp && \
-    git clone https://github.com/AdnanHodzic/auto-cpufreq.git && \
-    cd auto-cpufreq && \
-    echo "i" | sudo ./auto-cpufreq-installer
-
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
+#RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
 
 # Cleanup & Finalize
