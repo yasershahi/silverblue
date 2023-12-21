@@ -77,7 +77,7 @@ RUN rpm-ostree install \
     blender \
     poedit \
     thunderbird \
-    handbrake
+    dvdstyler
     
     
 # Install codecs
