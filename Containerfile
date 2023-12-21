@@ -31,7 +31,6 @@ RUN rpm-ostree install \
     wireguard-tools \
     cmatrix \
     jetbrains-mono-fonts \
-    fira-code-fonts \
     ibm-plex-mono-fonts \
     fractal \
     adw-gtk3-theme \
