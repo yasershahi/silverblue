@@ -31,7 +31,12 @@ RUN rpm-ostree install \
     wireguard-tools \
     cmatrix \
     jetbrains-mono-fonts \
+    fira-code-fonts \
+    liberation-fonts \
+    liberation-sans-fonts \
+    liberation-serif-fonts \
     ibm-plex-mono-fonts \
+    google-cousine-fonts \
     fractal \
     adw-gtk3-theme \
     adwaita-gtk2-theme \
@@ -58,17 +63,6 @@ RUN rpm-ostree install \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
-
-# NVIDIA
-RUN rpm-ostree install --apply-live rpmdevtools akmods
-RUN kmodgenca
-RUN mokutil --import /etc/pki/akmods/certs/public_key.der
-RUN git clone https://github.com/CheariX/silverblue-akmods-keys \
-    cd silverblue-akmods-keys \   
-    bash setup.sh
-RUN rpm-ostree install akmods-keys-0.0.2-8.fc$(rpm -E %fedora).noarch.rpm
-RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda
-RUN rpm-ostree install nvidia-container-toolkit nvidia-vaapi-driver supergfxctl libva-utils vdpauinfo
 
 # Install auto-cpufreq
 RUN cd /tmp && \
