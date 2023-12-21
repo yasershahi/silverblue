@@ -40,7 +40,6 @@ RUN rpm-ostree install \
     fractal \
     adw-gtk3-theme \
     adwaita-gtk2-theme \
-    distrobox \
     sstp-client \
     NetworkManager-sstp \
     NetworkManager-sstp-gnome \
@@ -63,6 +62,12 @@ RUN rpm-ostree install \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
+
+# Install Distrobox
+RUN rpm-ostree install distrobox && \
+    rpm-ostree override remove toolbox && \
+    mkdir -p /etc/distrobox && \
+    echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf
 
 # Install auto-cpufreq
 RUN cd /tmp && \
