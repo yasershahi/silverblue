@@ -17,8 +17,6 @@ RUN rpm-ostree override remove \
 # Install needed packages
 RUN rpm-ostree install \
     git \
-    rpmdevtools \
-    akmods \
     gnome-tweaks \
     unrar \
     p7zip \
