@@ -21,10 +21,7 @@ RUN rpm-ostree install \
     p7zip-plugins \
     aria2 \
     neofetch \
-    net-tools \
     lm_sensors \
-    wireguard-tools \
-    jetbrains-mono-fonts \
     adw-gtk3-theme \
     adwaita-gtk2-theme \
     sstp-client \
@@ -47,7 +44,7 @@ RUN rpm-ostree install \
     --uninstall rpmfusion-nonfree-release && \
     rpm-ostree install intel-media-driver libva-intel-driver && \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
-    rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
+    rpm-ostree override remove libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
 
 # Install Distrobox
