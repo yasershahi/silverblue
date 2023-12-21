@@ -9,7 +9,7 @@ COPY rootfs/etc/yum.repos.d/ /etc/yum.repos.d/
 COPY rootfs/usr/lib/ /usr/lib/
 
 # Enable cliwrap.
-# RUN rpm-ostree cliwrap install-to-root /
+RUN rpm-ostree cliwrap install-to-root /
 
 # Remove undesired packages
 # RUN rpm-ostree override remove \
