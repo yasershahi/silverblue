@@ -9,7 +9,7 @@ COPY rootfs/etc/yum.repos.d/ /etc/yum.repos.d/
 COPY rootfs/usr/lib/ /usr/lib/
 
 # Enable cliwrap.
-RUN rpm-ostree cliwrap install-to-root /
+# RUN rpm-ostree cliwrap install-to-root /
 
 # Remove undesired packages
 # RUN rpm-ostree override remove \
@@ -36,7 +36,7 @@ RUN rpm-ostree install \
     --uninstall rpmfusion-nonfree-release && \
     rpm-ostree install intel-media-driver libva-intel-driver && \
     rpm-ostree override remove mesa-va-drivers --install=mesa-va-drivers-freeworld --install=mesa-vdpau-drivers-freeworld && \
-    rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
+    #rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
 
 
@@ -51,7 +51,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-#RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
+RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
 
 
 # Cleanup & Finalize
