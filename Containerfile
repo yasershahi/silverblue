@@ -66,6 +66,7 @@ RUN rpm-ostree install \
 
 # Install NVIDIA
 RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda
+RUN rpm-ostree install nvidia-vaapi-driver libva-utils vdpauinfo nvidia-container-toolkit
 
 # Install auto-cpufreq
 RUN cd /tmp && \
