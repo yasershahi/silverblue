@@ -65,8 +65,7 @@ RUN rpm-ostree install \
     virt-manager \
     gnome-boxes \
     dconf-editor \
-    flatseal \
-    dvdstyler
+    flatseal
     
     
 # Install codecs
