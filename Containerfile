@@ -19,7 +19,6 @@ RUN rpm-ostree override remove \
 
 # Install needed packages
 RUN rpm-ostree install \
-    git \
     gnome-tweaks \
     unrar \
     p7zip \
@@ -65,18 +64,8 @@ RUN rpm-ostree install \
     qemu \
     virt-manager \
     gnome-boxes \
-    fractal \
-    vlc \
-    obs-studio \
-    audacity \
     dconf-editor \
     flatseal \
-    gimp \
-    inkscape \
-    kdenlive \
-    blender \
-    poedit \
-    thunderbird \
     dvdstyler
     
     
