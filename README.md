@@ -59,10 +59,12 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 - Intel media driver
 - Nvidia drivers not included. Fist do [this](https://github.com/CheariX/silverblue-akmods-keys) then:
 
-  
-    sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda
-
+    ```
+    sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda nvidia-vaapi-driver libva-utils vdpauinfo
+    ```
+    ```
     rpm-ostree kargs --append=rd.driver.blacklist=nouveau --append=modprobe.blacklist=nouveau --append=nvidia-drm.modeset=1 initcall_blacklist=simpledrm_platform_driver_init
+    ```
 
 ### Distrobox
 - Local by Flywheel
@@ -97,7 +99,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 ### Fonts
 - Fira code
 - Jetbrains mono
-- ubuntu Fonts (not included)
+- [ubuntu Fonts](https://design.ubuntu.com/font)
 - ibm-plex-mono-fonts
 - google-cousine-fonts
 - liberation-fonts
