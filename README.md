@@ -57,7 +57,7 @@ This is my Fedora Silverblue Image. I daily drive this image on my main machine 
 
 ### Drivers
 - Intel media driver
-- Nvidia drivers not included. Fist do [this](https://github.com/CheariX/silverblue-akmods-keys) then:
+- Nvidia drivers not included. Fist do [this](https://github.com/CheariX/silverblue-akmods-keys) then [this](https://github.com/fedora-silverblue/issue-tracker/issues/286) then:
 
     ```
     sudo rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda nvidia-vaapi-driver libva-utils vdpauinfo
