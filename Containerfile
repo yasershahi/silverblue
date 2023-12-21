@@ -10,7 +10,6 @@ COPY rootfs/usr/lib/ /usr/lib/
 
 # Remove undesired packages
 RUN rpm-ostree override remove \
-    gnome-classic-session \
     gnome-tour \
     xorg-x11-drv-intel
 
@@ -23,21 +22,10 @@ RUN rpm-ostree install \
     p7zip-plugins \
     aria2 \
     neofetch \
-    xfburn \
     net-tools \
-    yt-dlp \
-    nss-tools \
     lm_sensors \
     wireguard-tools \
-    cmatrix \
     jetbrains-mono-fonts \
-    fira-code-fonts \
-    liberation-fonts \
-    liberation-sans-fonts \
-    liberation-serif-fonts \
-    ibm-plex-mono-fonts \
-    google-cousine-fonts \
-    fractal \
     adw-gtk3-theme \
     adwaita-gtk2-theme \
     sstp-client \
