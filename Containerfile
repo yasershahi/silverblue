@@ -80,8 +80,6 @@ RUN rpm-ostree install \
     rpm-ostree override remove ffmpeg-free libavdevice-free libavfilter-free libavformat-free libavcodec-free libavutil-free libpostproc-free libswresample-free libswscale-free --install=ffmpeg && \
     rpm-ostree install gstreamer1-plugin-libav gstreamer1-plugins-bad-free-extras gstreamer1-plugins-ugly gstreamer1-vaapi
 
-# Nvidia
-RUN rpm-ostree install akmod-nvidia xorg-x11-drv-nvidia-cuda nvidia-vaapi-driver libva-utils vdpauinfo
 
 # Install Distrobox
 RUN rpm-ostree install distrobox && \
