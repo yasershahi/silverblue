@@ -1,6 +1,7 @@
 [![build-image](https://github.com/yasershahi/silverblue/actions/workflows/build.yml/badge.svg)](https://github.com/yasershahi/silverblue/actions/workflows/build.yml)
 
 # silverblue
+> Update: I moved to [Arch Linux](https://github.com/yasershahi/archdaily) as my daily driver since oct 5, 2024!
 This is my Fedora Silverblue Image. I daily drive this image on my main machine (ThinkPad X1 Extreme). You can fork it, customize and use it.
 ## Apps
 ### Flatpak
