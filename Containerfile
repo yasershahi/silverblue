@@ -46,7 +46,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-RUN rpm-ostree override reset --experimental --from repo=copr:copr.fedorainfracloud.org:execat:mutter-performance mutter
+RUN rpm-ostree override reset --from repo=copr:copr.fedorainfracloud.org:execat:mutter-performance mutter
 
 
 
