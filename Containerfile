@@ -1,4 +1,4 @@
-ARG FEDORA_MAJOR_VERSION=39
+ARG FEDORA_MAJOR_VERSION=41
 
 FROM quay.io/fedora-ostree-desktops/silverblue:${FEDORA_MAJOR_VERSION}
 # See https://pagure.io/releng/issue/11047 for final location
@@ -17,14 +17,9 @@ COPY rootfs/usr/lib/ /usr/lib/
 
 # Install needed packages
 RUN rpm-ostree install \
-    gnome-tweaks \
     unrar \
     aria2 \
-    neofetch \
-    lm_sensors \
-    sstp-client \
-    NetworkManager-sstp \
-    NetworkManager-sstp-gnome
+    lm_sensors
     
     
 # Install codecs
@@ -41,17 +36,17 @@ RUN rpm-ostree install \
 
 
 # Install Distrobox
-RUN rpm-ostree install distrobox && \
-    rpm-ostree override remove toolbox && \
-    mkdir -p /etc/distrobox && \
-    echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf
+#RUN rpm-ostree install distrobox && \
+#    rpm-ostree override remove toolbox && \
+#    mkdir -p /etc/distrobox && \
+#    echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf
 
 # Install cosign
 RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:yasershahi:mutter-triplebuffer mutter mutter-common
+RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:execat:mutter-performance mutter
 
 
 # Cleanup & Finalize
@@ -60,7 +55,7 @@ RUN systemctl enable dconf-update.service && \
     rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
     rm -f /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo && \
     rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo && \
-    rm -f /etc/yum.repos.d/yasershahi-mutter-triplebuffer.repo && \
+    rm -f /etc/yum.repos.d/execat-mutter-performance.repo && \
     systemctl enable flatpak-add-flathub-repo.service && \
     systemctl enable flatpak-replace-fedora-apps.service && \
     systemctl enable flatpak-cleanup.timer && \

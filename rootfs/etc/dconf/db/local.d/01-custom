@@ -1,9 +1,2 @@
-[org/gnome/desktop/interface]
-clock-show-date=false
-font-hinting="none"
-
-[org/gnome/desktop/peripherals/touchpad]
-tap-to-click=true
-
 [org/gnome/mutter]
 experimental-features=['']
