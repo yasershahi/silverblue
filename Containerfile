@@ -45,8 +45,11 @@ RUN rpm-ostree install \
 RUN wget --no-hsts https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
     install -c -m 0755 /tmp/cosign /usr/bin
 
+# Enable repository
+RUN rpm-ostree rebase --repo=copr:copr.fedorainfracloud.org:execat:mutter-performance
+
 # Patch mutter
-RUN rpm-ostree override replace --repo=copr:copr.fedorainfracloud.org:execat:mutter-performance mutter
+RUN rpm-ostree override replace mutter
 
 
 # Cleanup & Finalize
