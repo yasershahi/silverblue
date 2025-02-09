@@ -46,10 +46,7 @@ RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linu
     install -c -m 0755 /tmp/cosign /usr/bin
 
 # Patch mutter
-RUN dnf -y swap \
-    --repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
-        mutter mutter
-
+RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:execat:mutter-performance mutter
 
 
 # Cleanup & Finalize
@@ -57,7 +54,7 @@ RUN rm -rf /tmp/* /var/*
 RUN rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org && \
     rm -f /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:phracek:PyCharm.repo && \
     rm -f /etc/yum.repos.d/fedora-cisco-openh264.repo && \
-    rm -f /etc/yum.repos.d/ublue-os-staging.repo && \
+    rm -f /etc/yum.repos.d/execat-mutter-performance.repo && \
     rpm-ostree cleanup -m && \
     ostree container commit
     
