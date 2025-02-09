@@ -42,14 +42,11 @@ RUN rpm-ostree install \
 #    echo "container_image_default=\"registry.fedoraproject.org/fedora-toolbox:$(rpm -E %fedora)\"" >> /etc/distrobox/distrobox.conf
 
 # Install cosign
-RUN wget --no-hsts https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
+RUN wget https://github.com/sigstore/cosign/releases/download/v2.0.0/cosign-linux-amd64 -O /tmp/cosign && \
     install -c -m 0755 /tmp/cosign /usr/bin
 
-# Enable repository
-RUN rpm-ostree rebase --repo=copr:copr.fedorainfracloud.org:execat:mutter-performance
-
 # Patch mutter
-RUN rpm-ostree override replace mutter
+RUN rpm-ostree override replace --experimental --from=copr:execat/mutter-performance mutter
 
 
 # Cleanup & Finalize
@@ -60,4 +57,4 @@ RUN rm -rf /usr/share/gnome-shell/extensions/background-logo@fedorahosted.org &&
     rm -f /etc/yum.repos.d/execat-mutter-performance.repo && \
     rpm-ostree cleanup -m && \
     ostree container commit
-
+    
