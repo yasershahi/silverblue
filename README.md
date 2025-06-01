@@ -5,7 +5,7 @@
 
 > Update: Feb 11 2025 and I am on silverblue again! [Vegeta](https://github.com/yasershahi/vegeta).
 > 
-> Archived! Doing another image called [BlueStream](https://github.com/yasershahi/bluestream).
+> Archived at 1 Jun 2025! Doing another image called [BlueStream](https://github.com/yasershahi/bluestream).
 
 This is my Fedora Silverblue Image. I daily drive this image on my main machine (ThinkPad X1 Extreme). You can fork it, customize and use it.
 ## Apps
